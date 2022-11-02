@@ -29,6 +29,11 @@
 
     <div class="text-sm ">
       {{#if currentUser}}
+
+      <a href="#" class="font-bold block mt-4 mr-10 lg:inline-block lg:mt-0 text-black hover:text-white">
+        {{currentUser.details.username}}
+      </a>
+
       <a href="/user/logout" class="block mt-4 lg:inline-block lg:mt-0 text-black hover:text-white">
         Logout
       </a>
