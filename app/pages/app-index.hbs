@@ -1,6 +1,14 @@
+<h1 class="text-3xl font-bold underline text-blue-700"><span object key:name="@innerText" edit:name>{{name}}</span>My notes</h1>
+<div class="text-700">
+    <ul array keys="notes" sortable>
+        <li class="font-bold text-black-550" object key:text="@innerText" edit:text> --Empty Title-- </li>
 
-<h1 class="text-3xl font-bold underline text-blue-700">Welcome to the app!</h1>
-<div class="text-blue-700">[[ Dynamic Remake code goes here]]</div>
+        {{#for note in notes}}
+            <li object key:text="@innerText" edit:text>
+                {{default note.text "--empty--"}}
+            </li>
+        {{/for}}
+    </ul>
+    <button class="font-bold text-blue-500" new:note>Create notes</button>
+</div>
 <br><br>
-
-<a href="https://docs.remaketheweb.com/a-simple-example-app/">Try a simple todo app</a>
