@@ -1,75 +1,89 @@
-<div class="flex justify-center min-h-screen bg-gray-100">
-  <main class="mx-auto mb-5 mt-1 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-14 xl:mt-28 ">
-    <div class="sm:text-center">
-      <h1 class="text-2xl font-bold text-gray-900 sm:text-2xl md:text-4xl">
-        <span class="block xl:inline ">Tame Your
-          <span class="text-indigo-600 xl:inline">Work</span>
-        </span>
+<!-- Landing page design, https://www.digitalocean.com/community/tutorials/build-a-beautiful-landing-page-with-tailwind-css-->
 
-        <span class="block xl:inline sm:mt-5">Organize Your
-          <span class="text-indigo-600 xl:inline">Life</span>
-        </span>
+<!-- Hero section-->
+<div class="py-20" style="background: linear-gradient(90deg, #22e0e0 0%, #235af0 100%)">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-2 text-white">
+      Tame Your Work Organize Your Life
+    </h2>
+    <h3 class="text-2xl mb-8 text-gray-200">
+      Remember everything and tackle any project with your notes, tasks, and schedule all in one place.</p>
+    </h3>
 
-      </h1>
-      <p class="text-center mt-5 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl">
-        Remember everything and tackle any project with your notes, tasks, and schedule all in one place.</p>
-      <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-        <div class="mx-auto rounded-md shadow">
+    {{#if currentUser}}
+    <a href="/{{currentUser.details.username}}"
+      class="items-center justify-center rounded-full shadow-lg bg-pink-500 px-8 py-3 text-base font-medium text-white hover:bg-pink-600 md:py-4 md:px-10 md:text-lg">
+      Go To Your dashboard
+    </a>
+    {{else}}
+    <a href="/user/signup"
+      class="items-center justify-center rounded-full shadow-lg   bg-pink-500 px-8 py-3 text-base font-medium text-white hover:bg-pink-600 md:py-4 md:px-10 md:text-lg">
+      Sign up for an account
+    </a>
+    {{/if}}
 
-
-          {{#if currentUser}}
-          <a href="/{{currentUser.details.username}}"
-            class="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-blue-900 md:py-4 md:px-10 md:text-lg">
-            Go to your dashboard
-          </a>
-          {{else}}
-          <a href="/user/signup"
-            class="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-8 py-3 text-base font-medium text-white hover:bg-blue-900 md:py-4 md:px-10 md:text-lg">
-            Sign up for an account
-          </a>
-          {{/if}}
-        </div>
+    {{#if currentUser}}
+    {{!-- <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+      <div class="mx-auto">
+        <span class="font-bold"> Welcome, {{currentUser.details.username}}</span>
       </div>
-      {{#if currentUser}}
-      {{!-- <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-        <div class="mx-auto">
-          <span class="font-bold"> Welcome, {{currentUser.details.username}}</span>
-        </div>
 
-      </div> --}}
-      {{else}}
-      <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-        <div class="mx-auto">
-          <a href="/user/login" class="text-sm text-grey-200 underline hover:text-blue-500">
-            Already have an account? Log in
-          </a>
-        </div>
-      </div>
-      {{/if}}
-
-      <div class="mt-5 sm:mt-10 sm:flex lg:justify-start">
-        <div class="mx-20 shadow-2xl">
-          <img src="assets/images/kanban-screenshot.png"/>
-        </div>
-        <div class="mx-auto">
-          <h1 class="font-bold">
-            WORK ANYWHERE
-          </h1>
-          <span class="mt-3">Keep important information at hand - your notes are automatically synced to all your devices.</span>
-          <h1 class="font-bold mt-5">
-            REMEMBER EVERYTHING
-          </h1>
-          <span class="mt-3">Make notes more useful by adding text, images, audio, scans, PDFs, and documents.</span>
-          <h1 class="font-bold mt-5">
-            FIND THINGS FAST
-          </h1>
-          <span class="mt-3">Get what you need, when you need it with powerful, flexible search capabilities.</span>
-
-        </div>
-
+    </div> --}}
+    {{else}}
+    <div class="ml-5 mt-5 sm:mt-8">
+      <div class="mx-auto">
+        <a href="/user/login" class="text-sm text-white underline hover:text-blue-800">
+          Already have an account? Log in
+        </a>
       </div>
     </div>
-  </main>
-
-
+    {{/if}}
+  </div>
 </div>
+
+
+<!-- Feature Sections-->
+
+<section class="container mx-auto px-6 p-10">
+  <h2 class="text-4xl font-bold text-center text-gray-800 mb-8">
+    Features
+  </h2>
+  <div class="flex items-center flex-wrap mb-20">
+    <div class="w-full md:w-1/2">
+      <h4 class="text-3xl text-gray-800 font-bold mb-3">WORK ANYWHERE</h4>
+      <p class="text-gray-600 mb-8">Keep important information at hand - your notes are automatically synced to all your
+        devices.</p>
+    </div>
+    <div class="w-full md:w-1/2 shadow-2xl">
+      <img src="/assets/images/kanban-screenshot.png" alt="work anywhere" />
+    </div>
+  </div>
+
+
+  <div class="w-full md:w-1/2">
+    <h4 class="text-3xl text-gray-800 font-bold mb-3">REMEMBER EVERYTHING</h4>
+    <p class="text-gray-600 mb-8">Make notes more useful by adding text...</p>
+  </div>
+
+  <div class="flex items-center flex-wrap mb-20">
+    <div class="w-full md:w-1/2">
+      <h4 class="text-3xl text-gray-800 font-bold mb-3">FIND THINGS FAST</h4>
+      <p class="text-gray-600 mb-8">Get what you need, when you need it with powerful, flexible search capabilities.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="bg-gray-100">
+  <div class="container mx-auto px-6 pt-10 pb-10">
+    <div class="flex flex-wrap justify-center">
+
+      <div class="flex w-full flex-wrap justify-center">
+      <p class="text-gray-600 ">Group 22, CPSC-349, Section 13693, CSUF.</a>
+      </div>
+      <div class="flex w-full flex-wrap justify-center">
+      <p class="text-gray-600 ">@Copyright 2022. All Rights Reserved.</a>
+      </div>
+    </div>
+  </div>
+</footer>
